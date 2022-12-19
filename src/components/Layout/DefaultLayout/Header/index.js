@@ -8,7 +8,7 @@ import 'tippy.js/dist/tippy.css'; // optional
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../AccountItem';
-
+import Button from '../../../../Button';
 
 const cx = classNames.bind(styles)
 function Header() {
@@ -38,7 +38,6 @@ function Header() {
                                 <AccountItem/>
                                 <AccountItem/>
                                 <AccountItem/>
-
                             </PopperWrapper>
                         </div>
                     )}
@@ -58,7 +57,9 @@ function Header() {
                   </div>
                 </Tippy>
                 <div className={cx('actions')}>
-
+                        <Button text  to="/#" onClick={()=> alert('Clicked')}>UpLoad</Button>
+                        <Button primary   to="/#" onClick={()=> alert('Clicked')}>Log in</Button>
+                        
                 </div>
             </div>
         </header>
