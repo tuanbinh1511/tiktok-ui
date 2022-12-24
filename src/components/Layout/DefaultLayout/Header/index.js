@@ -3,18 +3,17 @@ import classNames from 'classnames/bind';
 import images from '../../../../assets/images';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCircleXmark , faMagnifyingGlass, faSpinner, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
-import {  faCloudDownload, faMessage } from '@fortawesome/free-solid-svg-icons';
-
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
-
 import 'tippy.js/dist/tippy.css'; // optional
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../AccountItem';
 import Button from '../../../../Button';
 import Menu from '../../../Popper/Menu';
+import Images from '../../../Images';
+import { InboxIcon, MessageIcon, UploadIcon } from '../../../Icons';
 
 const cx = classNames.bind(styles)
 
@@ -126,12 +125,19 @@ function Header() {
                         <>
                             <Tippy  delay={(0,300)} content="Upload video" placement='bottom'>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudDownload} ></FontAwesomeIcon>
+                                    <UploadIcon></UploadIcon>
                                 </button>
                             </Tippy>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} ></FontAwesomeIcon>                               
-                            </button>
+                            <Tippy  delay={(0,300)} content="Message" placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon></MessageIcon>
+                                </button>
+                            </Tippy>
+                            <Tippy  delay={(0,300)} content="Inbox" placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon></InboxIcon>
+                                </button>
+                            </Tippy>
                         </>
                     ):(
                         <>
@@ -145,7 +151,7 @@ function Header() {
                         >
                             {
                                 currentUser ? (
-                                        <img className={cx('user-avatar')} src={"https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tiktok-obj/bde0d542ad0c559ff67015e13369e03c.jpeg?x-expires=1671753600&x-signature=y5vuMxknlhODz5fcCoGaQ%2BMKgrQ%3D"} alt="Dang Thu Ha"></img>
+                                        <Images className={cx('user-avatar')} src={"https://scontent.fdad3-5.fna.fbcdn.net/v/t1.6435-9/99013175_1552654368248618_9221118823996850176_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ygo3m2czMS8AX-NSysA&_nc_ht=scontent.fdad3-5.fna&oh=00_AfBvV-4LiagkLtEZDjlceAurvpu503icgQBl7882OL2yFQ&oe=63CDDF561"} alt="Dang Thu Ha"></Images>
                                 ):(
                                     
 
