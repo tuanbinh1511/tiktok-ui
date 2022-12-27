@@ -2,19 +2,15 @@ import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '../../../../assets/images';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCircleXmark , faMagnifyingGlass, faSpinner, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard, faUser, faCoins, faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
-import 'tippy.js/dist/tippy.css'; // optional
-import { useEffect, useState } from 'react';
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import AccountItem from '../AccountItem';
+ // optional
 import Button from '../../../../Button';
 import Menu from '../../../Popper/Menu';
 import Images from '../../../Images';
 import { InboxIcon, MessageIcon, UploadIcon } from '../../../Icons';
-
+import Search from '../Search';
 const cx = classNames.bind(styles)
 
 const MENU_ITEMS= [
@@ -49,15 +45,9 @@ const MENU_ITEMS= [
 const currentUser = true
 
 function Header() {
-    const [searchResult , setSearchResult] = useState([])
     const handleMenuChange =(menuItem) =>{
         console.log(menuItem);
     }
-    useEffect(() =>{
-        setTimeout(()=>{
-            setSearchResult([])
-        },0)
-    })
     const userMenu = [
         {
             icon:<FontAwesomeIcon icon={faUser }/>,
@@ -89,37 +79,7 @@ function Header() {
                 <div className={cx('logo')}>
                    <img src={images.logo} alt="tiktok" />
                 </div>
-                <HeadlessTippy 
-                    interactive
-                    visible={searchResult.length >0}
-                    render={(attrs) =>(
-                        <div className ={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Accounts
-                                </h4>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                  <div className={cx('search')}>
-                    <input  placeholder="Search account and video" spellCheck="false"/>
-                    <button className={cx('clear')}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
-                    <button >
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-                    </button>
-                    
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                  </div>
-                </HeadlessTippy>
+                <Search/>
                 <div className={cx('actions')}>
                     {currentUser ?(
                         <>
@@ -151,7 +111,7 @@ function Header() {
                         >
                             {
                                 currentUser ? (
-                                        <Images className={cx('user-avatar')} src={"https://scontent.fdad3-5.fna.fbcdn.net/v/t1.6435-9/99013175_1552654368248618_9221118823996850176_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ygo3m2czMS8AX-NSysA&_nc_ht=scontent.fdad3-5.fna&oh=00_AfBvV-4LiagkLtEZDjlceAurvpu503icgQBl7882OL2yFQ&oe=63CDDF561"} alt="Dang Thu Ha"></Images>
+                                        <Images className={cx('user-avatar')} src={"https://scontent.fdad3-5.fna.fbcdn.net/v/t1.6435-9/99013175_1552654368248618_9221118823996850176_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ygo3m2czMS8AX-NSysA&_nc_ht=scontent.fdad3-5.fna&oh=00_AfBvV-4LiagkLtEZDjlceAurvpu503icgQBl7882OL2yFQ&oe=63CDDF56"} alt="Dang Thu Ha"></Images>
                                 ):(
                                     
 
