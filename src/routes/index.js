@@ -5,6 +5,7 @@ import UpLoad from '../pages/Upload';
 const PulicRoutes =[
     { path: '/' , component : Home},
     { path: '/following' , component : Following},
+    { path: '/@:nickname' , component : Following},
     { path: '/upLoad' , component : UpLoad , layout : null}
 
 ]
