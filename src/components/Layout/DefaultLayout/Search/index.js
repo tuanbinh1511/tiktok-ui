@@ -2,6 +2,7 @@ import AccountItem from "../AccountItem";
 import HeadlessTippy from '@tippyjs/react/headless';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
+import  * as searchService  from "../../../../apiServices/searchService";
 import {faCircleXmark , faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { useEffect, useState , useRef } from 'react';
@@ -15,7 +16,7 @@ function Search() {
     const [showResult , setShowResult] = useState(true)
     const [loading , setLoading] = useState(false)
     
-    const debounced= useDebounce(searchValue,500)
+    const debounced= useDebounce(searchValue,600)
 
     const handleClear = () =>{        
         setSearchValue('')
@@ -30,16 +31,14 @@ function Search() {
             setSearchResult([])
             return;
         }
-        setLoading(true)
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then(res=>res.json())
-            .then(res => {
-                setSearchResult(res.data)
-                setLoading(false)
-        })
-        .catch(()=>{
+        const fetchApi = async ()=>{
+            setLoading(true)
+            const result = await searchService.search(debounced)
+            setSearchResult(result)
             setLoading(false)
-        })
+        }
+        fetchApi()
+        
     },[debounced])
 
     const handleHideResult =()=>{
