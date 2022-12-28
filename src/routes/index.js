@@ -2,11 +2,13 @@ import Home from '../pages/Home'
 import Following from '../pages/Following';
 import UpLoad from '../pages/Upload';
 
+import routeConfig from '../config/routes'
+
 const PulicRoutes =[
-    { path: '/' , component : Home},
-    { path: '/following' , component : Following},
-    { path: '/@:nickname' , component : Following},
-    { path: '/upLoad' , component : UpLoad , layout : null}
+    { path: routeConfig.home , component : Home},
+    { path: routeConfig.home , component : Following},
+    { path: routeConfig.profile , component : Following},
+    { path: routeConfig.upload , component : UpLoad , layout : null}
 
 ]
    
