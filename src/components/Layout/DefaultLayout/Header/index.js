@@ -12,7 +12,7 @@ import Menu from '../../../Popper/Menu';
 import Images from '../../../Images';
 import { InboxIcon, MessageIcon, UploadIcon } from '../../../Icons';
 import Search from '../Search';
-import routeConfig from '../../../../config/routes';
+import config from '../../../../config';
 
 
 
@@ -82,7 +82,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routeConfig.home} className={cx('logo-link')}>
+                <Link to={config.home} className={cx('logo-link')}>
                     <div className={cx('logo')}>
                         <img src={images.logo} alt="tiktok" />
                     </div>

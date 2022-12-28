@@ -2,17 +2,16 @@ import Home from '../pages/Home'
 import Following from '../pages/Following';
 import UpLoad from '../pages/Upload';
 
-import routeConfig from '../config/routes'
+import config from '../config'
+
 
 const PulicRoutes =[
-    { path: routeConfig.home , component : Home},
-    { path: routeConfig.home , component : Following},
-    { path: routeConfig.profile , component : Following},
-    { path: routeConfig.upload , component : UpLoad , layout : null}
+    { path: config.routes.home , component : Home},
+    { path: config.routes.home , component : Following},
+    { path: config.routes.profile , component : Following},
+    { path: config.routes.upload , component : UpLoad , layout : null}
 
 ]
-   
-
 const PrivateRoutes =[
 
 ]
