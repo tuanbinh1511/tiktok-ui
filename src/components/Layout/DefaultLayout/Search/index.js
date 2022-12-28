@@ -2,7 +2,7 @@ import AccountItem from "../AccountItem";
 import HeadlessTippy from '@tippyjs/react/headless';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
-import  * as searchService  from "../../../../apiServices/searchService";
+import  * as searchService  from "../../../../services/searchService";
 import {faCircleXmark , faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { useEffect, useState , useRef } from 'react';
