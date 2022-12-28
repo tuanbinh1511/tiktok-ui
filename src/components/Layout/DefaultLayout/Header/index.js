@@ -32,7 +32,8 @@ const MENU_ITEMS= [
                 {
                     code:'vi',
                     title:'Việt Nam',
-                }
+                },
+                
             ]
         }
     },
