@@ -21,6 +21,6 @@ function Header({title , onBack}) {
 }
 Header.prototype={
     title:PropTypes.string.isRequired,
-    onBack:PropTypes.func.isRequired
+    onBack:PropTypes.func.isRequired,
 }
 export default Header;
